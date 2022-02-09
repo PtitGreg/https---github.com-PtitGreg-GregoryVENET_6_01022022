@@ -1,9 +1,11 @@
 # Projet 6 de la formation Dev web Openclassrooms
 
-Projet en cours de construction
+Projet en cours de développement
 
 ## HOT TAKES
+
 ### Installation
+
 Here are the dependancies you need to install:
 
 NodeJS 12.14 or 14.0.
@@ -14,6 +16,7 @@ On Windows, these installations require to use PowerShell in administrator mode.
 Then, clone this repo, run npm install, and run npm install --save-dev run-script-os.
 
 ### Usage
+
 Run npm start. This should both run the local server and launch your browser.
 
 If your browser fails to launch, or shows a 404 error, navigate your browser to http://localhost:8080.
@@ -23,6 +26,7 @@ The app should reload automatically when you make a change to a file.
 Use Ctrl+C in the terminal to stop the local server
 
 ## Scénario
+
 Vous avez passé la dernière année en tant que développeur back-end indépendant et vous avez travaillé sur plusieurs projets de tailles et de difficultés variées.
 
 La semaine dernière, vous avez reçu un message sur votre plateforme de freelance vous demandant de l'aide pour un nouveau projet. Les sauces piquantes sont de plus en plus populaires, en grande partie grâce à la série YouTube « Hot Ones » . C’est pourquoi ce nouveau client, la marque de condiments à base de piment Piiquante, veut développer une application web de critique des sauces piquantes appelée « Hot Takes » .
@@ -62,7 +66,8 @@ Le délai est raisonnable, vous décidez donc d'accepter le projet. Après avoir
 
 Vous êtes prêt à vous lancer dans l'API ! C’est parti !
 
-# Compétences évaluées
+## Compétences évaluées
+
 * Implémenter un modèle logique de données conformément à la réglementation
 * Stocker des données de manière sécurisée
 * Mettre en œuvre des opérations CRUD de manière sécurisée
