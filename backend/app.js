@@ -1,9 +1,13 @@
 const express = require("express");
-const mongoose = require("mongoose");
-// connection à mongodb
-mongoose.connect(
-		"mongodb+srv://piiquante:oafNou1d2sVhR9FP@cluster0.7vmy1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-		{ useNewUrlParser: true, useUnifiedTopology: true }
+const { findById } = require("./models/sauce/:id");
+const Thing = require("./models/sauce");
+const sauceRoutes = require("./routes/user");
+
+// Utilisation de MongoDB
+mongoose
+	.connect(
+		"mongodb+srv://jimbob:<PASSWORD>@cluster0-pme76.mongodb.net/test?retryWrites=true&w=majority",
+		{ useNewUrlParser: true, useUnifiedTopology: true },
 	)
 	.then(() => console.log("Connexion à MongoDB réussie !"))
 	.catch(() => console.log("Connexion à MongoDB échouée !"));
