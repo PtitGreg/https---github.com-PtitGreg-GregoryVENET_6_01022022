@@ -1,11 +1,9 @@
 const express = require("express");
-const { findById } = require("./models/sauce");
 const mongoose = require("mongoose");
-const Sauce = require("./models/sauce");
 const sauceRoutes = require("./routes/sauce");
-const likeRoutes = require("./routes/like");
-require("dotenv").config();
 const userRoutes = require("./routes/user");
+require("dotenv").config();
+const path = require("path");
 const app = express();
 
 // Connection à MongoDB
@@ -28,7 +26,7 @@ app.use((req, res, next) => {
 	);
 	next();
 });
-app
-	.use("/api/sauces", sauceRoutes)
-	.use("/api/auth", userRoutes);
+app.use("./images", express.static(path.join(__dirname, "images")));
+app.use("/api/sauces", sauceRoutes)
+app.use("/api/auth", userRoutes);
 module.exports = app;
