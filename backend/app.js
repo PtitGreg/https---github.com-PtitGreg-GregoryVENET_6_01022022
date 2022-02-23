@@ -6,9 +6,10 @@ const userRoutes = require("./routes/user");
 const path = require("path");
 const app = express();
 require("dotenv").config();
+const helmet = require("helmet");
 // Connection à MongoDB
 mongoose
-	.connect(process.env.MONGO_URL, {
+	.connect(process.env.MONGO_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
@@ -27,7 +28,7 @@ app.use((req, res, next) => {
 	next();
 });
 app.use(express.json());
-
+app.use(helmet())
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/auth", userRoutes);
 app.use("/api/sauces", sauceRoutes);
