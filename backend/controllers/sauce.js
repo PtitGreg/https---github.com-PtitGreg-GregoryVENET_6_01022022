@@ -77,13 +77,11 @@ exports.likeSauce = (req, res) => {
 		.then((sauce) => {
 			let userLike = sauce.usersLiked.find((id) => id === userId);
 			let userDislike = sauce.usersDisliked.find((id) => id === userId);
-			console.log(`statut: ${like}`);
 			switch (like) {
 				case 1:
 					sauce.likes += 1;
 					sauce.usersLiked.push(userId);
 					break;
-				// annule -1
 				case 0:
 					if (userLike) {
 						sauce.likes -= 1;
