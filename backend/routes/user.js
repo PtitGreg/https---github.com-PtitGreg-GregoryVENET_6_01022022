@@ -1,6 +1,5 @@
 // Gestion de la route utilisateur
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const userCtrl = require("../controllers/user");
 
 router.post("/signup", userCtrl.signup);
