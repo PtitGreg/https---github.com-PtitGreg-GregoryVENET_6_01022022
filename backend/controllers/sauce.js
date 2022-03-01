@@ -13,7 +13,7 @@ exports.createSauce = (req, res) => {
 	});
 	sauce
 		.save()
-		.then(() => res.status(201).json({ message: "sauce enregistrée !" }))
+		.then(() => res.status(201).json({ "Sauce créée !" }))
 		.catch((error) => res.status(400).json({ error }));
 };
 // récup détail sauce
@@ -45,7 +45,7 @@ exports.modifySauce = (req, res) => {
 		{ ...sauceObject, _id: req.params.id },
 	)
 		.then(res.status(200).json({ message: "Sauce modifiée" }))
-		.catch((error) => res.status(400).json({ error }));
+		.catch((error) => res.status(403).json({ error }));
 };
 //Suppression sauce
 exports.deleteSauce = (req, res) => {
@@ -55,7 +55,7 @@ exports.deleteSauce = (req, res) => {
 			fs.unlink(`images/${filename}`, () => {
 				Sauce.deleteOne({ _id: req.params.id })
 					.then(() => res.status(200).json({ message: "Sauce supprimée !" }))
-					.catch((error) => res.status(400).json({ error }));
+					.catch((error) => res.status(403).json({ error }));
 			});
 		})
 		.catch((error) => res.status(500).json({ error }));
