@@ -1,3 +1,6 @@
+#ignore le dossier node
 /node_modules
+#ignore le fichier ".env" (variables d'environnement)
 .env
-/backend\images\
+#ignore les images du dossier images
+/backend/images/*
