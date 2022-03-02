@@ -1,16 +1,17 @@
 // Controle de l'utilisateur
-const bcrypt = require("bcrypt");
-const User = require("../models/user");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const passwordValidator = require("password-validator");
+const bcrypt = require("bcrypt"); //Cryptage du passe
+const User = require("../models/user");//Import modèle user
+const jwt = require("jsonwebtoken");//imprt gestion token
+require("dotenv").config();//import gestion variables d'environnement
+const passwordValidator = require("password-validator");//import condition passe selon schema
+const emailValidator = require("email-validator");//import validation email
 //Schema password
 const schemaPassword = new passwordValidator();
 schemaPassword
 	.is()
 	.min(8) // Minimum 8 caracteres
 	.is()
-	.max(20) // Maximum length 20
+	.max(20) // Maximum 20 caractères
 	.has()
 	.uppercase() // Minimum 1 majuscule
 	.has()
@@ -20,7 +21,7 @@ schemaPassword
 
 // Middleware d'enregistrement utilsateur
 exports.signup = (req, res) => {
-	if (schemaPassword.validate(req.body.password)) {
+	if (schemaPassword.validate(req.body.password) && emailValidator.validate(req.body.email)) {
 		bcrypt
 			.hash(req.body.password, 10)
 			.then((hash) => {

@@ -8,12 +8,10 @@ const userSchema = mongoose.Schema({
 		unique: true,
 		trim: true,
 		lowercase: true,
-		validate: 	/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 	},
 	password: {
 		type: String,
 		required: true,
-		unique: true,
 		trim: true,
 	},
 });

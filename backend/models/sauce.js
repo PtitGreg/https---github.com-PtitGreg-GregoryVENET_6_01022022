@@ -1,33 +1,33 @@
 // Import Mongoose
 const mongoose = require("mongoose");
 // Condition Caractères
-const regex = /[$\/<>;]/;
+const regex = (entry) => (/[$\/<>;]/.test(entry) ? false : true);
 // Schéma sauce
 const sauceSchema = mongoose.Schema({
 	userId: {
 		type: String,
 		required: true,
-		validate: regex,
+		validate: [regex, 'Caractères interdits'],
 	},
 	name: {
 		type: String,
 		required: true,
-		validate: regex,
+		// validate: regex,
 	},
 	manufacturer: {
 		type: String,
 		required: true,
-		validate: regex,
+		// validate: regex,
 	},
 	description: {
 		type: String,
 		required: true,
-		validate: regex,
+		// validate: regex,
 	},
 	mainPepper: {
 		type: String,
 		required: true,
-		validate: regex,
+		// validate: regex,
 	},
 	imageUrl: {
 		type: String,
@@ -36,7 +36,7 @@ const sauceSchema = mongoose.Schema({
 	heat: {
 		type: Number,
 		required: true,
-		min: 0,
+		min: 1,
 		max: 10,
 	},
 	likes: {
@@ -57,7 +57,7 @@ const sauceSchema = mongoose.Schema({
 	usersDisliked: {
 		type: Array,
 		required: true,
-		max: -1,
+		min: -1,
 	},
 });
 // Export Schema
