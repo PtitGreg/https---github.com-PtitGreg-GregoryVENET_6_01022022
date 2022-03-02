@@ -2,5 +2,3 @@
 /node_modules
 #ignore le fichier ".env" (variables d'environnement)
 .env
-#ignore les fichiers du dossiers images
-/images/*.*

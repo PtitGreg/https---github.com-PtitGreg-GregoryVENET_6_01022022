@@ -1,0 +1,3 @@
+# Exclusion des images sauf du .gitignore lors d'un push sur github
+*
+!.gitignore
