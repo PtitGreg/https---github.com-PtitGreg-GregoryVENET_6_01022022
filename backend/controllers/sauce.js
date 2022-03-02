@@ -89,7 +89,6 @@ exports.likeSauce = (req, res) => {
 	let like = req.body.like;
 	let userId = req.body.userId;
 	let sauceId = req.params.id;
-
 	switch (like) {
 		case 1: //like
 			Sauce.updateOne(
