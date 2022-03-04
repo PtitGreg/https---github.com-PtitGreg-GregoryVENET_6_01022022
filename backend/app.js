@@ -6,6 +6,7 @@ const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 const path = require("path");
 const rateLimit = require("express-rate-limit");
+const mongoSanitize = require("express-mongo-sanitize");
 require("dotenv").config();
 // Connection à MongoDB
 mongoose
@@ -46,6 +47,7 @@ app.use(
 		crossOriginResourcePolicy: false,
 	}),
 );
+app.use(mongoSanitize());
 //utilisation des images en mode statique
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/auth", userRoutes);
