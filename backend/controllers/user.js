@@ -23,7 +23,7 @@ schemaPassword
 exports.signup = (req, res) => {
 	if (schemaPassword.validate(req.body.password) && emailValidator.validate(req.body.email)) {
 		bcrypt
-			.hash(req.body.password, 10)
+			.hash(req.body.password, 10)//Hachage et salage du passe
 			.then((hash) => {
 				const user = new User({
 					email: req.body.email,
@@ -47,12 +47,12 @@ exports.login = (req, res) => {
 				return res.status(401).json({ error });
 			}
 			bcrypt
-				.compare(req.body.password, user.password)
+				.compare(req.body.password, user.password) //comparaison du passe crypté avec bcrypt
 				.then((valid) => {
-					if (!valid) {
+				if (!valid) {//si non valide
 						return res.status(401).json({ error });
 					}
-					res.status(200).json({
+					res.status(200).json({//si valide
 						userId: user._id,
 						token: jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, {
 							expiresIn: "24h",

@@ -1,3 +1,4 @@
+// Imports
 const http = require("http");
 const app = require("./app");
 
@@ -12,7 +13,7 @@ const normalizePort = (val) => {
 	}
 	return false;
 };
-const port = normalizePort(process.env.PORT);
+const port = normalizePort(process.env.PORT|| "3000");
 app.set("port", port);
 
 const errorHandler = (error) => {
@@ -35,9 +36,9 @@ const errorHandler = (error) => {
 			throw error;
 	}
 };
-
+// Création serveur
 const server = http.createServer(app);
-
+// Lancement serveur
 server.on("error", errorHandler);
 server.on("listening", () => {
 	const address = server.address();

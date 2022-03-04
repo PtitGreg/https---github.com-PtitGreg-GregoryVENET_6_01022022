@@ -1,0 +1,8 @@
+# Connection a mongodb
+MONGO_URI = "mongodb+srv://<Veuillez entrer votre identifiant>:<Veuillez entrer votre pass>@cluster0.7vmy1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+# Tken d'authentification
+TOKEN_KEY = "Veuillez entrer l'élément necessaire "
+
+# Port server
+PORT = "Veuillez entrer votre port"

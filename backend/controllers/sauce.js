@@ -91,19 +91,25 @@ exports.likeSauce = (req, res) => {
 	let sauceId = req.params.id;
 	switch (like) {
 		case 1: //like
-			Sauce.updateOne(
-				{ _id: sauceId },
-				{ $push: { usersLiked: userId }, $inc: { likes: +1 } },
-			)
-				.then(() => res.status(200).json({ message: "J'aime" }))
-				.catch((error) => res.status(400).json({ error }));
-			console.log(req.body);
+			Sauce.findOne({ _id: sauceId })
+				.then((sauce) => {
+					if (!sauce.usersLiked.includes(userId) && like === 1) {
+						Sauce.updateOne(
+							{ _id: sauceId },
+							{ $push: { usersLiked: userId }, $inc: { likes: +1 } },
+						)
+							.then(() => res.status(200).json({ message: "J'aime" }))
+							.catch((error) => res.status(400).json({ error }));
+						console.log(req.body);
+					}
+				})
+				.catch((error) => res.status(404).json({ error }));
 			break;
 
 		case 0: //no like
 			Sauce.findOne({ _id: sauceId })
 				.then((sauce) => {
-					if (sauce.usersLiked.includes(userId)) {
+					if (sauce.usersLiked.includes(userId) && req.body.like === 0) {
 						Sauce.updateOne(
 							{ _id: sauceId },
 							{ $pull: { usersLiked: userId }, $inc: { likes: -1 } },
@@ -111,7 +117,7 @@ exports.likeSauce = (req, res) => {
 							.then(() => res.status(200).json({ message: "Neutre" }))
 							.catch((error) => res.status(400).json({ error }));
 					}
-					if (sauce.usersDisliked.includes(userId)) {
+					if (sauce.usersDisliked.includes(userId) && req.body.like === 0) {
 						Sauce.updateOne(
 							{ _id: sauceId },
 							{ $pull: { usersDisliked: userId }, $inc: { dislikes: -1 } },
@@ -125,18 +131,23 @@ exports.likeSauce = (req, res) => {
 			break;
 
 		case -1: //dislike
-			Sauce.updateOne(
-				{ _id: sauceId },
-				{ $push: { usersDisliked: userId }, $inc: { dislikes: +1 } },
-			)
-				.then(() => {
-					res.status(200).json({ message: "Je n'aime pas" });
-					console.log(req.body);
+			Sauce.findOne({ _id: sauceId })
+				.then((sauce) => {
+					if (!sauce.usersLiked.includes(userId) && req.body.like === -1) {
+						Sauce.updateOne(
+							{ _id: sauceId },
+							{ $push: { usersDisliked: userId }, $inc: { dislikes: +1 } },
+						)
+							.then(() => {
+								res.status(200).json({ message: "Je n'aime pas" });
+								console.log(req.body);
+							})
+							.catch((error) => res.status(400).json({ error }));
+					}
 				})
-				.catch((error) => res.status(400).json({ error }));
+				.catch((error) => res.status(404).json({ error }));
 			break;
-
 		default:
-			console.log(error);
+		console.log(error);
 	}
 };

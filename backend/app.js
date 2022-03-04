@@ -15,25 +15,28 @@ mongoose
 	})
 	.then(() => console.log("Connexion à MongoDB réussie !"))
 	.catch(() => console.log("Connexion à MongoDB échouée !"));
+// Initialise Express
 app.use(express.json());
 // Ajout des headers
 app.use((req, res, next) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Origin", "*"); //Donne accès a l'api de tout origine
 	res.setHeader(
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
 	);
+	//Gestion des requêtes
 	res.setHeader(
 		"Access-Control-Allow-Methods",
 		"GET, POST, PUT, DELETE",
 	);
 	next();
 });
+// Applique les limites
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+	windowMs: 15 * 60 * 1000, // durée 15 minutes
+	max: 100, // Applique une limite de 100 requêtes par fenêtre en 15min
+	standardHeaders: true, // Informations limites de taux de retour dans les en-têtes Ratelimit
+	legacyHeaders: false, // Désactiver les en-têtes `x-ratelimit- *` `
 });
 // Apply the rate limiting middleware to all requests
 app.use(limiter);
@@ -43,6 +46,7 @@ app.use(
 		crossOriginResourcePolicy: false,
 	}),
 );
+//utilisation des images en mode statique
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/auth", userRoutes);
 app.use("/api/sauces", sauceRoutes);
