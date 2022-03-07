@@ -1,31 +1,37 @@
 # Projet 6 de la formation Dev web Openclassrooms
 
-Projet en cours de développement
+Projet prêt pour la soutenance
 
-## HOT TAKES
+🔨   Installation
 
-### Installation
+- Cloner ce projet depuis GitHub.
 
-Here are the dependancies you need to install:
+💡   Mise en route du Frontend
 
-NodeJS 12.14 or 14.0. Angular CLI 7.0.2. node-sass : make sure to use the
-corresponding version to NodeJS. For Noe 14.0 for instance, you need node-sass
-in version 4.14+. On Windows, these installations require to use PowerShell in
-administrator mode.
+- Ouvrir le terminal sur le dossier frontend et exécuter npm install pour installer les dépendances.
+- Le projet a été généré avec Angular.
+- Démarrer npm start pour avoir accès au serveur de développement.
+- Rendez-vous sur http://localhost:8080.
+- L'application va se recharger automatiquement si vous modifiez un fichier source.
 
-Then, clone this repo, run npm install, and run npm install --save-dev
-run-script-os.
+💡   Mise en route du Backend
 
-### Usage
+- Ouvrir le terminal sur le dossier Backend.
+- Pour utiliser le serveur, chargez le package nodemon : npm install -g nodemon.
+- Puis lancez le serveur: nodemon.
 
-Run npm start. This should both run the local server and launch your browser.
+💡   Sinon
 
-If your browser fails to launch, or shows a 404 error, navigate your browser to
-http://localhost:8080.
+- Si les packages sont déja installés, ces commandes suffisent à démarrer les serveurs.
 
-The app should reload automatically when you make a change to a file.
+- npm start via le terminal sur le frontend
+- nodemon server via le terminal sur le backend
+- Se connecter à l'url : http://localhost:8080
 
-Use Ctrl+C in the terminal to stop the local server
+🖥   Connexion
+
+- Ouvrir http://localhost:8080 dans votre navigateur.
+- Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe contenant 8 caractères minimum et 20 maximum (dont 1 majuscule, 1 minuscule, 1 chiffre, pas de symbole, pas d'espaces).
 
 ## Scénario
 
@@ -91,3 +97,5 @@ Vous êtes prêt à vous lancer dans l'API ! C’est parti !
 - Implémenter un modèle logique de données conformément à la réglementation
 - Stocker des données de manière sécurisée
 - Mettre en œuvre des opérations CRUD de manière sécurisée
+
+Donnez une ⭐️   si ce projet vous a plu !
