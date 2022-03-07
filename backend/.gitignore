@@ -1,3 +1,4 @@
+// Formation OpenClassrooms - Développeur Web - Projet 6 - Grégory VENET
 #ignore le dossier node
 /node_modules
 #ignore le fichier ".env" (variables d'environnement)

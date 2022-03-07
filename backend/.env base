@@ -1,3 +1,4 @@
+# Formation OpenClassrooms - Développeur Web - Projet 6 - Grégory VENET
 # Connection a mongodb
 MONGO_URI = "mongodb+srv://<Veuillez entrer votre identifiant>:<Veuillez entrer votre pass>@cluster0.7vmy1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
