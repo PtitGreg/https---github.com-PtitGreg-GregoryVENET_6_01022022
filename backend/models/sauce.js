@@ -53,14 +53,12 @@ const sauceSchema = mongoose.Schema({
 		default: 0,
 	},
 	usersLiked: {
-		type: Array,
+		type: [String],
 		required: true,
-		max: 1,
 	},
 	usersDisliked: {
-		type: Array,
+		type: [String],
 		required: true,
-		min: -1,
 	},
 });
 // Plugin pour mongoose qui purifie les champs du model avant de les enregistrer dans la base mongoDB
