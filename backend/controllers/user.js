@@ -67,7 +67,7 @@ exports.login = (req, res) => {
 						token: jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, {
 							expiresIn: "24h",
 						}),
-						message: "utilisateur connecté !"
+						message: "utilisateur connecté !",
 					});
 				})
 				.catch((error) => res.status(500).json({ error }));
