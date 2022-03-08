@@ -2,36 +2,41 @@
 
 Projet prêt pour la soutenance
 
-🔨   Installation
+🔨 Installation
 
 - Cloner ce projet depuis GitHub.
 
-💡   Mise en route du Frontend
+💡 Mise en route du Frontend
 
-- Ouvrir le terminal sur le dossier frontend et exécuter npm install pour installer les dépendances.
+- Ouvrir le terminal sur le dossier frontend et exécuter npm install pour
+  installer les dépendances.
 - Le projet a été généré avec Angular.
 - Démarrer npm start pour avoir accès au serveur de développement.
 - Rendez-vous sur http://localhost:8080.
-- L'application va se recharger automatiquement si vous modifiez un fichier source.
+- L'application va se recharger automatiquement si vous modifiez un fichier
+  source.
 
-💡   Mise en route du Backend
+💡 Mise en route du Backend
 
 - Ouvrir le terminal sur le dossier Backend.
 - Pour utiliser le serveur, chargez le package nodemon : npm install -g nodemon.
 - Puis lancez le serveur: nodemon.
 
-💡   Sinon
+💡 Sinon
 
-- Si les packages sont déja installés, ces commandes suffisent à démarrer les serveurs.
+- Si les packages sont déja installés, ces commandes suffisent à démarrer les
+  serveurs.
 
 - npm start via le terminal sur le frontend
 - nodemon server via le terminal sur le backend
 - Se connecter à l'url : http://localhost:8080
 
-🖥   Connexion
+🖥 Connexion
 
 - Ouvrir http://localhost:8080 dans votre navigateur.
-- Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe contenant 8 caractères minimum et 20 maximum (dont 1 majuscule, 1 minuscule, 1 chiffre, pas de symbole, pas d'espaces).
+- Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un
+  mot de passe contenant 8 caractères minimum et 20 maximum (dont 1 majuscule, 1
+  minuscule, 1 chiffre, pas de symbole, pas d'espaces).
 
 ## Scénario
 
@@ -98,4 +103,4 @@ Vous êtes prêt à vous lancer dans l'API ! C’est parti !
 - Stocker des données de manière sécurisée
 - Mettre en œuvre des opérations CRUD de manière sécurisée
 
-Donnez une ⭐️   si ce projet vous a plu !
+Donnez une ⭐️ si ce projet vous a plu !
