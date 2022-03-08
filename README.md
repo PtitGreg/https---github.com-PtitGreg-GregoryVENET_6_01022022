@@ -6,6 +6,13 @@ Projet prêt pour la soutenance
 
 - Cloner ce projet depuis GitHub.
 
+💡 Fichier ".env"
+
+- Renommer le fichier ".env base" en ".env"
+- Entrer votre identifiant et mot de pass MongoDB
+- Veuillez entrer votre Token
+- Veuillez entrer votre Port
+
 💡 Mise en route du Frontend
 
 - Ouvrir le terminal sur le dossier frontend et exécuter npm install pour
