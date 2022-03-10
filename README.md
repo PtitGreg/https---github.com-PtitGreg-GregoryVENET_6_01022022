@@ -19,7 +19,7 @@ Projet prêt pour la soutenance
   installer les dépendances.
 - Le projet a été généré avec Angular.
 - Démarrer npm start pour avoir accès au serveur de développement.
-- Rendez-vous sur http://localhost:8080.
+- Rendez-vous sur <http://localhost:8080>.
 - L'application va se recharger automatiquement si vous modifiez un fichier
   source.
 
@@ -36,11 +36,11 @@ Projet prêt pour la soutenance
 
 - npm start via le terminal sur le frontend
 - nodemon server via le terminal sur le backend
-- Se connecter à l'url : http://localhost:8080
+- Se connecter à l'url : <http://localhost:8080>
 
 🖥 Connexion
 
-- Ouvrir http://localhost:8080 dans votre navigateur.
+- Ouvrir <http://localhost:8080> dans votre navigateur.
 - Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un
   mot de passe contenant 8 caractères minimum et 20 maximum (dont 1 majuscule, 1
   minuscule, 1 chiffre, pas de symbole, pas d'espaces).
