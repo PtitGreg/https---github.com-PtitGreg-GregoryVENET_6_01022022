@@ -1,6 +1,6 @@
 # Projet 6 de la formation Dev web Openclassrooms
 
-Projet prêt pour la soutenance
+Projet terminé
 
 🔨 Installation
 
@@ -104,10 +104,75 @@ suivant :
 
 Vous êtes prêt à vous lancer dans l'API ! C’est parti !
 
+# Remarques sur l'évaluation
+
 ## Compétences évaluées
 
-- Implémenter un modèle logique de données conformément à la réglementation
-- Stocker des données de manière sécurisée
-- Mettre en œuvre des opérations CRUD de manière sécurisée
+1. Implémenter un modèle logique de données conformément à la réglementation
+
+Validé
+
+Commentaires :
+
+- Le backend de l'application ne tombe pas en panne lors de son exécution : ✔
+- Il n'y a pas d'erreurs dans la console lors de l'exécution de l'application :
+  ✔
+- L'application utilise toutes les routes énumérées dans le document
+  «spécifications » : ✔
+- Le projet utilise le framework Express Node.js : ✔
+- Le projet est articulé autour d’un serveur Node.js : ✔
+- Le projet utilise une base de données MongoDB (sur MongoDB Atlas ou un service
+  similaire) : ✔
+
+2. Stocker des données de manière sécurisée
+
+Validé
+
+Commentaires :
+
+- Les mots de passe utilisateurs sont stockés dans la base de données en
+  utilisant un hachage des données : ✔
+- L'application oblige strictement à une authentification sur toutes les routes
+  requises : ✔
+- L'application utilise un plugin Mongoose approprié pour garantir que les
+  adresses électroniques stockées dans la base de données sont uniques : ✔
+- La configuration de la sécurité dans la base de données MongoDB permet à
+  l'évaluateur d'exécuter avec succès l'application sur sa propre machine : ✔
+- L'application utilise un plugin Mongoose approprié pour s'assurer que toute
+  erreur dans la base de données est signalée :✔
+- Les versions les plus récentes de Mongoose et de Node.js sont utilisées avec
+  des correctifs de sécurité mis à jour : ✔
+- L'utilisateur ajoute le contenu du dossier images à gitignore, afin que les
+  images ne soient pas téléchargées sur GitHub : ✔
+
+3. Mettre en œuvre des opérations CRUD de manière sécurisée
+
+Validé
+
+Commentaires :
+
+- L'application effectue des opérations de création, de lecture, de mise à jour
+  et de suppression telles que définies dans les spécifications de l'API : ✔
+
+## Livrable
+
+Points forts :
+
+- travail sérieux
+- utilisation d'extensions pertinentes comme helmet ou dotenv
+
+Axes d'amélioration :
+
+- dès que vous aurez le temps approfondir un peu plus les notions abordées dans ce
+projet
+
+### Soutenance
+
+Remarques :
+
+- Assez bonne soutenance de la part de Grégory : la posture était
+  professionnelle, les explications claires appuyées sur un support de
+  présentation, les réponses globalement justes et le temps imparti assez bien
+  respecté (18 minutes).
 
 Donnez une ⭐️ si ce projet vous a plu !
