@@ -9,6 +9,8 @@ const auth = require("../middleware/auth");
 const multer = require("../middleware/multer-config");
 // Importation du controleur sauce.js aux routes
 const sauceCtrl = require("../controllers/sauce");
+const isOwner = require("../middleware/isOwner")
+
 //Route du CRUD des sauces
 // Route qui permet de récupérer toutes les sauces
 // Renvoie le tableau de toutes les sauces dans la base de données
@@ -19,10 +21,10 @@ router.post("/", auth, multer, sauceCtrl.createSauce);
 // Renvoie la sauce avec l'ID fourni
 router.get("/:id", auth, sauceCtrl.getOneSauce);
 // Route qui permet de modifier "une sauce"
-router.put("/:id", auth, multer, sauceCtrl.modifySauce);
+router.put("/:id", auth, isOwner, multer, sauceCtrl.modifySauce);
 // Route qui permet de supprimer "une sauce"
 // Supprime la sauce avec l'ID fourni.
-router.delete("/:id", auth, sauceCtrl.deleteSauce);
+router.delete("/:id", isOwner, auth, sauceCtrl.deleteSauce);
 // Route qui permet de gérer les likes des sauces
 router.post("/:id/like", auth, sauceCtrl.likeSauce);
 // Export des routes
