@@ -1,12 +1,9 @@
 // Formation OpenClassrooms - Développeur Web - Projet 6 - Grégory VENET
-// Import Mongoose
+
 const mongoose = require("mongoose");
-// Sanitizeur(nettoyeur) de modele mongoose
 const sanitizerPlugin = require("mongoose-sanitizer-plugin");
 
-// Condition Caractères
 const regex = (entry) => (/[$\/<>;]/.test(entry) ? false : true);
-// Schéma sauce
 const sauceSchema = mongoose.Schema({
 	userId: {
 		type: String,
@@ -61,7 +58,6 @@ const sauceSchema = mongoose.Schema({
 		required: true,
 	},
 });
-// Plugin pour mongoose qui purifie les champs du model avant de les enregistrer dans la base mongoDB
+
 sauceSchema.plugin(sanitizerPlugin);
-// Export Schema
 module.exports = mongoose.model("Sauce", sauceSchema);

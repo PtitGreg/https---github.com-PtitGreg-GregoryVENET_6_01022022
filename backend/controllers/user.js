@@ -1,44 +1,43 @@
 // Formation OpenClassrooms - Développeur Web - Projet 6 - Grégory VENET
-// Controle de l'utilisateur
-const bcrypt = require("bcrypt"); //Cryptage du passe
-const User = require("../models/user"); //Import modèle user
-const jwt = require("jsonwebtoken"); //import gestion token attribué à l'utilisateur
-require("dotenv").config(); //import gestion variables d'environnement
-const passwordValidator = require("password-validator"); //import condition passe selon schema
-const emailValidator = require("email-validator"); //import validation email
+const bcrypt = require("bcrypt");
+const User = require("../models/user");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const passwordValidator = require("password-validator");
+const emailValidator = require("email-validator");
+
 //Schema password
 const schemaPassword = new passwordValidator();
 schemaPassword
 	.is()
-	.min(8) // Minimum 8 caracteres
+	.min(8)
 	.is()
-	.max(20) // Maximum 20 caractères
+	.max(20)
 	.has()
-	.uppercase() // Minimum 1 majuscule
+	.uppercase()
 	.has()
-	.lowercase() // Minimum 1 minuscule
+	.lowercase()
 	.has()
 	.not()
 	.spaces()
 	.has()
-	.digits(2); // Minimum 2 chiffre
+	.digits(2);
+
 // Middleware d'enregistrement utilisateur
 exports.signup = (req, res) => {
-	// si l'email et le shema est ok
 	if (
 		schemaPassword.validate(req.body.password) &&
 		emailValidator.validate(req.body.email)
 	) {
 		bcrypt
-			.hash(req.body.password, 10) //Hachage et salage du passe
+			.hash(req.body.password, 10)
 			.then((hash) => {
 				const user = new User({
 					email: req.body.email,
 					password: hash,
 				});
-				// création utilisateur
 				user
-					.save() //Sauvegarde sur mongoDB
+					.save()
 					.then(() => res.status(201).json({ message: "Utilisateur créé !" }))
 					.catch((error) => res.status(400).json({ error }));
 			})
@@ -55,14 +54,12 @@ exports.login = (req, res) => {
 				return res.status(401).json({ error });
 			}
 			bcrypt
-				.compare(req.body.password, user.password) //comparaison du passe crypté avec bcrypt
+				.compare(req.body.password, user.password) 
 				.then((valid) => {
 					if (!valid) {
-						//si non valide
 						return res.status(401).json({ error });
 					}
 					res.status(200).json({
-						//si valide
 						userId: user._id,
 						token: jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, {
 							expiresIn: "24h",
