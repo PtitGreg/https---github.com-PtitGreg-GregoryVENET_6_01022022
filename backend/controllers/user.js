@@ -46,7 +46,7 @@ exports.signup = (req, res) => {
 		res.status(400).json({ error });
 	}
 };
-// Middleware de connection utilsateur
+// Middleware de connection utilisateur
 exports.login = (req, res) => {
 	User.findOne({ email: req.body.email })
 		.then((user) => {
@@ -54,7 +54,7 @@ exports.login = (req, res) => {
 				return res.status(401).json({ error });
 			}
 			bcrypt
-				.compare(req.body.password, user.password) 
+				.compare(req.body.password, user.password)
 				.then((valid) => {
 					if (!valid) {
 						return res.status(401).json({ error });
