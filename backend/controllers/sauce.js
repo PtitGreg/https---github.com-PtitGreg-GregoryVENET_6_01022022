@@ -37,8 +37,7 @@ exports.getOneSauce = (req, res) => {
 exports.modifySauce = (req, res) => {
 	let sauceObject = {};
 	req.file
-		?
-		  (Sauce.findOne({
+		? (Sauce.findOne({
 				_id: req.params.id,
 		  }).then((sauce) => {
 				const filename = sauce.imageUrl.split("/images/")[1];
@@ -50,13 +49,12 @@ exports.modifySauce = (req, res) => {
 					req.file.filename
 				}`,
 		  }))
-		:
-		  (sauceObject = {
+		: (sauceObject = {
 				...req.body,
 		  });
 	Sauce.updateOne(
 		{ _id: req.params.id },
-		{ ...sauceObject, _id: req.params.id },
+		{ ...sauceObject, _id: req.params.id }
 	)
 		.then(() => res.status(200).json({ message: "Sauce modifiée" }))
 		.catch((error) => res.status(400).json({ error }));
@@ -102,7 +100,7 @@ exports.likeSauce = (req, res) => {
 			{
 				$push: { usersLiked: userId },
 				$inc: { likes: +1 },
-			},
+			}
 		)
 			.then(() => res.status(200).json({ message: "Like ajouté !" }))
 			.catch((error) => res.status(400).json({ error }));
@@ -113,7 +111,7 @@ exports.likeSauce = (req, res) => {
 			{
 				$push: { usersDisliked: userId },
 				$inc: { dislikes: +1 },
-			},
+			}
 		)
 			.then(() => {
 				res.status(200).json({ message: "Dislike ajouté !" });
@@ -129,7 +127,7 @@ exports.likeSauce = (req, res) => {
 						{
 							$pull: { usersLiked: userId },
 							$inc: { likes: -1 },
-						},
+						}
 					)
 						.then(() => res.status(200).json({ message: "Like retiré !" }))
 						.catch((error) => res.status(400).json({ error }));
@@ -140,7 +138,7 @@ exports.likeSauce = (req, res) => {
 						{
 							$pull: { usersDisliked: userId },
 							$inc: { dislikes: -1 },
-						},
+						}
 					)
 						.then(() => res.status(200).json({ message: "Dislike retiré !" }))
 						.catch((error) => res.status(400).json({ error }));
@@ -149,7 +147,7 @@ exports.likeSauce = (req, res) => {
 			.catch((error) =>
 				res.status(404).json({
 					error,
-				}),
+				})
 			);
 	}
 };
